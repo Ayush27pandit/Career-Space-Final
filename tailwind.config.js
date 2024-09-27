@@ -16,7 +16,10 @@ module.exports = {
         "2xl": "1400px",
       },
     },
-    extend: {
+    extend: {fontFamily: {
+      poppins: ['poppins','sans-serif'],
+      Roboto: ["Roboto Condensed", 'sans-serif']
+    },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
