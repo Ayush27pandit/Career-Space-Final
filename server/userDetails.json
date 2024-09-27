@@ -22,5 +22,21 @@
     "email": "siddhantchakraborty977@gmail.com",
     "phone": "123",
     "skills": "webdev,c++"
+  },
+  {
+    "name": "SIddhant",
+    "email": "siddhantchakraborty977@gmail.com",
+    "phone": "123",
+    "skills": "webdev"
+  },
+  {
+    "name": "SIddhant",
+    "email": "siddhantchakraborty977@gmail.com",
+    "phone": "123",
+    "skills": "webdev",
+    "jobPreference": "posting",
+    "collegeName": "BIT DURG",
+    "companyName": "Google",
+    "location": "delhi"
   }
 ]

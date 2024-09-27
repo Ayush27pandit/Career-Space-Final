@@ -327,5 +327,18 @@
     "description": "a,sndkanl",
     "forType": "College",
     "college": "Bhilai Institute of Technology, Durg"
+  },
+  {
+    "id": 23,
+    "jobTitle": "google intern",
+    "companyName": "google",
+    "skills": [
+      "webdev"
+    ],
+    "location": "durg",
+    "type": "internship",
+    "description": "fullstack intern",
+    "forType": "College",
+    "college": "bitdurg"
   }
 ]

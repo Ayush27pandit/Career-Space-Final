@@ -8,6 +8,11 @@ const UserDetailsForm = () => {
     email: '',
     phone: '',
     skills: '',
+    jobPreference: '', // New field for job preference
+    jobType: '', // New field to specify job posting type
+    collegeName: '', // New field for college name
+    companyName: '', // New field for company name
+    location: '', // New field for company location
   });
   const [isLoading, setIsLoading] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -97,18 +102,100 @@ const UserDetailsForm = () => {
           className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
       </div>
+
+      {/* Job Preference */}
       <div className="mb-4">
-        <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="skills">
-          Skills:
+        <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="jobPreference">
+          Are you looking for jobs or do you want to post jobs?
         </label>
-        <input
-          type="text"
-          name="skills"
-          value={userDetails.skills}
+        <select
+          name="jobPreference"
+          value={userDetails.jobPreference}
           onChange={handleChange}
+          required
           className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-        />
+        >
+          <option value="" disabled>Select...</option>
+          <option value="looking">Looking for jobs</option>
+          <option value="posting">Posting jobs</option>
+        </select>
       </div>
+
+      {/* Conditional fields based on job preference */}
+      {userDetails.jobPreference === 'posting' && (
+        <>
+          <div className="mb-4">
+            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="jobType">
+              Do you want to submit your job to a particular college or to everyone?
+            </label>
+            <select
+              name="jobType"
+              value={userDetails.jobType}
+              onChange={handleChange}
+              required
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            >
+              <option value="" disabled>Select...</option>
+              <option value="college">Particular College</option>
+              <option value="everyone">Everyone</option>
+            </select>
+          </div>
+          <div className="mb-4">
+            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="collegeName">
+              College Name (if applicable):
+            </label>
+            <input
+              type="text"
+              name="collegeName"
+              value={userDetails.collegeName}
+              onChange={handleChange}
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+          <div className="mb-4">
+            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="companyName">
+              Company Name:
+            </label>
+            <input
+              type="text"
+              name="companyName"
+              value={userDetails.companyName}
+              onChange={handleChange}
+              required
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+          <div className="mb-4">
+            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="location">
+              Location of the Company:
+            </label>
+            <input
+              type="text"
+              name="location"
+              value={userDetails.location}
+              onChange={handleChange}
+              required
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+        </>
+      )}
+
+      {userDetails.jobPreference === 'looking' && (
+        <div className="mb-4">
+          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="skills">
+            Skills:
+          </label>
+          <input
+            type="text"
+            name="skills"
+            value={userDetails.skills}
+            onChange={handleChange}
+            required
+            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+        </div>
+      )}
 
       {error && (
         <Alert variant="destructive" className="mb-4 p-4 bg-red-100 text-red-800 rounded-md">

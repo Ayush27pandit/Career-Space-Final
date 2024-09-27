@@ -7,17 +7,17 @@ const JobList = () => {
   const [loading, setLoading] = useState(false);
   const [searchText, setSearchText] = useState('');
   const [filteredJobs, setFilteredJobs] = useState([]);
-  const [applySuccess, setApplySuccess] = useState(null); // For showing success alert
-  const [applyError, setApplyError] = useState(null); // For showing error alert
+  const [applySuccess, setApplySuccess] = useState(null);
+  const [applyError, setApplyError] = useState(null);
 
   // Fetch the data from the backend
   const fetchJobs = async () => {
     setLoading(true);
     try {
-      const response = await fetch('http://localhost:3000/api/data'); // Update the URL if needed
+      const response = await fetch('http://localhost:3000/api/data');
       const data = await response.json();
       setJobs(data);
-      setFilteredJobs(data); // Initialize filtered jobs with all jobs
+      setFilteredJobs(data);
     } catch (error) {
       console.error("Error fetching the jobs:", error);
     }
@@ -36,15 +36,34 @@ const JobList = () => {
   };
 
   // Handle "Apply" button click
-  const handleApply = (jobId) => {
-    const userDetails = localStorage.getItem('userDetails');
+  const handleApply = async (jobId) => {
+    const userDetails = JSON.parse(localStorage.getItem('userDetails'));
     if (!userDetails) {
       setApplyError("Please submit your user details before applying for a job.");
-      setApplySuccess(null); // Clear success message if exists
+      setApplySuccess(null);
     } else {
-      setApplySuccess(`You have successfully applied for the job with ID: ${jobId}`);
-      setApplyError(null); // Clear error message if exists
-      console.log(`Apply button clicked for job with ID: ${jobId}`);
+      const { name, email, phone } = userDetails; // Assuming these fields exist in userDetails
+      try {
+        const response = await fetch('http://localhost:3000/apply', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ jobId, name, email, phone }),
+        });
+
+        if (response.ok) {
+          setApplySuccess(`You have successfully applied for the job with ID: ${jobId}`);
+          setApplyError(null);
+        } else {
+          setApplyError("Failed to apply for the job. Please try again.");
+          setApplySuccess(null);
+        }
+      } catch (error) {
+        console.error("Error applying for the job:", error);
+        setApplyError("An error occurred. Please try again later.");
+        setApplySuccess(null);
+      }
     }
   };
 
@@ -77,10 +96,10 @@ const JobList = () => {
       selector: (row) => row.skills.join(', '),
     },
     {
-      name: 'Apply', // Custom column for Apply button
+      name: 'Apply',
       cell: (row) => (
-        <button 
-          onClick={() => handleApply(row.id)} 
+        <button
+          onClick={() => handleApply(row.id)}
           style={{ padding: '5px 10px', backgroundColor: '#007bff', color: 'white', border: 'none', borderRadius: '5px' }}>
           Apply
         </button>

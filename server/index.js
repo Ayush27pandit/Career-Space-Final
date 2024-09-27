@@ -28,19 +28,61 @@ const getNextId = (existingUsers) => {
 
 // API endpoint to send dummy data
 app.get("/api/data", (req, res) => {
+  const filePath = path.join(__dirname, "dummydata2.json");
+
   try {
-    console.log("hit");
-    res.json(dummyData);
+    // Read the data from the JSON file
+    if (fs.existsSync(filePath)) {
+      const fileData = fs.readFileSync(filePath, "utf8");
+      const userData = JSON.parse(fileData); // Parse the JSON data
+      res.json(userData); // Send the parsed data as JSON response
+    } else {
+      res.status(404).json({ message: "Data not found." });
+    }
   } catch (error) {
-    console.log(error);
+    console.error("Error reading data:", error);
+    res.status(500).json({ message: "Internal server error." });
   }
 });
+
+
+
+const applicationsFilePath = path.join(__dirname, 'applications.json'); // File to store applications
+
+// Endpoint to apply for a job
+app.post("/apply", (req, res) => {
+  const { jobId, name, email, phone } = req.body;
+
+  // Create an application object
+  const application = {
+    jobId,
+    name,
+    email,
+    phone,
+  };
+
+  // Read existing applications
+  let applications = [];
+  if (fs.existsSync(applicationsFilePath)) {
+    const fileData = fs.readFileSync(applicationsFilePath, 'utf8');
+    applications = JSON.parse(fileData);
+  }
+
+  // Add new application
+  applications.push(application);
+
+  // Write updated applications back to the file
+  fs.writeFileSync(applicationsFilePath, JSON.stringify(applications, null, 2));
+
+  res.status(200).json({ message: 'Application submitted successfully!' });
+});
+
 
 app.post("/jobpostform", (req, res) => {
   const {
     jobTitle,
     companyName,
-    skills,
+    skills, // This might be a string or an array
     location,
     type,
     description,
@@ -65,12 +107,12 @@ app.post("/jobpostform", (req, res) => {
     id: newId,
     jobTitle,
     companyName,
-    skills: skills.split(",").map((skill) => skill.trim()),
+    skills: Array.isArray(skills) ? skills : skills.split(",").map((skill) => skill.trim()), // Check if skills is an array
     location,
     type,
     description,
     forType,
-    college,
+    college: forType === "College" ? college : undefined,
   };
 
   // Add new data
@@ -84,6 +126,7 @@ app.post("/jobpostform", (req, res) => {
     id: newId,
   });
 });
+
 
 // Route to handle user details submission
 app.post("/api/users", (req, res) => {
