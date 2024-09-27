@@ -7,6 +7,7 @@ const cors = require('cors');
 const { listModels, queryOllama } = require('./ollama'); // Import Ollama functions
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 require('dotenv').config();
+const dummyData = require('./dummydata')
 
 const app = express();
 
@@ -18,6 +19,15 @@ app.get("/", (req, res) => {
   res.send('<p>some html</p>');
 });
 
+// API endpoint to send dummy data
+app.get('/api/data', (req, res) => {
+  try {
+    console.log("hit")
+    res.json(dummyData);
+  } catch (error) {
+    console.log(error)
+  }
+  }); 
 
 app.post("/jobpostform", (req, res) => {
   const { jobTitle, companyName, skills } = req.body;
@@ -25,7 +35,10 @@ app.post("/jobpostform", (req, res) => {
   const newUserData = {
     jobTitle,
     companyName,
-    skills: skills.split(",").map((skill) => skill.trim()), // Convert skills to an array
+    skills: skills.split(",").map((skill) => skill.trim()),
+    location,
+    type,
+    description,
   };
 
   // Read existing data

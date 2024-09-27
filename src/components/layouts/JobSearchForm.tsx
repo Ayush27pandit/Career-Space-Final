@@ -11,7 +11,7 @@ const UserDetailsForm = () => {
   });
   const [isLoading, setIsLoading] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState('');
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -31,7 +31,7 @@ const UserDetailsForm = () => {
       setIsSubmitted(true);
     } catch (error) {
       console.error('Error saving user details:', error);
-      setError('An error occurred while saving user details. Please try again.');
+      setError("An error occurred while saving user details. Please try again.");
     } finally {
       setIsLoading(false);
     }

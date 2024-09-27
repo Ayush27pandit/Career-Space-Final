@@ -2,10 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 
 import { Applayout } from "./components/layouts/AppLayout";
 
-import NoMatch from "./pages/NoMatch";
-import Dashboard from "./pages/Dashboard";
-import Empty from "./pages/Empty";
-import Sample from "./pages/Sample";
+
 import JobPostForm from "./components/layouts/JobPostForm";
 import JobSearch from "./components/layouts/JobSearch";
 import JobSearchForm from "./components/layouts/JobSearchForm";
@@ -16,6 +13,8 @@ import QuizTaker from "./components/layouts/QuizTaker";
 import EmailContentGenerator from "./components/layouts/EmailGeneration";
 import SkillGapIdentifier from "./components/layouts/SkillGenerator";
 import AIQuizGenerator from "./components/layouts/AIquiz";
+import Posts from "./components/layouts/Posts";
+import VoiceflowWidget from "./components/layouts/VoiceFlow";
 
 export const router = createBrowserRouter(
   [
@@ -59,7 +58,14 @@ export const router = createBrowserRouter(
       path:'/aigenerate',
       element:<AIQuizGenerator />
     },
-    
+    {
+      path:'/posts',
+      element:<Posts />
+    },
+    {
+      path: "/voiceflow",
+      element: <VoiceflowWidget />,
+    },
     
     
   ],

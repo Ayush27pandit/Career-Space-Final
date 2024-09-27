@@ -1,10 +1,438 @@
 [
   {
-    "jobTitle": "ajkads",
-    "companyName": "asdoashd",
+    "jobTitle": "backend",
+    "companyName": "Adobe",
     "skills": [
-      "webdev",
-      "c++"
-    ]
+      "Java",
+      "Springboot"
+    ],
+    "location": "Durg",
+    "type": "Full-time"
+  },
+  {
+    "jobTitle": "Backend Developer",
+    "companyName": "Adobe",
+    "skills": [
+      "Java",
+      "Spring Boot"
+    ],
+    "location": "Durg",
+    "type": "Full-time"
+  },
+  {
+    "jobTitle": "Frontend Developer",
+    "companyName": "Google",
+    "skills": [
+      "React",
+      "JavaScript"
+    ],
+    "location": "New York",
+    "type": "Full-time"
+  },
+  {
+    "jobTitle": "Data Scientist",
+    "companyName": "Facebook",
+    "skills": [
+      "Python",
+      "Machine Learning"
+    ],
+    "location": "San Francisco",
+    "type": "Full-time"
+  },
+  {
+    "jobTitle": "DevOps Engineer",
+    "companyName": "Amazon",
+    "skills": [
+      "AWS",
+      "Docker",
+      "Kubernetes"
+    ],
+    "location": "Seattle",
+    "type": "Full-time"
+  },
+  {
+    "jobTitle": "UI/UX Designer",
+    "companyName": "Spotify",
+    "skills": [
+      "Figma",
+      "Adobe XD"
+    ],
+    "location": "Berlin",
+    "type": "Internship"
+  },
+  {
+    "jobTitle": "Mobile App Developer",
+    "companyName": "Apple",
+    "skills": [
+      "Swift",
+      "iOS"
+    ],
+    "location": "Cupertino",
+    "type": "Full-time"
+  },
+  {
+    "jobTitle": "Software Engineer",
+    "companyName": "Microsoft",
+    "skills": [
+      "C#",
+      ".NET"
+    ],
+    "location": "Redmond",
+    "type": "Full-time"
+  },
+  {
+    "jobTitle": "Cloud Engineer",
+    "companyName": "IBM",
+    "skills": [
+      "Azure",
+      "Cloud Architecture"
+    ],
+    "location": "Austin",
+    "type": "Full-time"
+  },
+  {
+    "jobTitle": "Machine Learning Engineer",
+    "companyName": "Tesla",
+    "skills": [
+      "Python",
+      "TensorFlow"
+    ],
+    "location": "Palo Alto",
+    "type": "Full-time"
+  },
+  {
+    "jobTitle": "Game Developer",
+    "companyName": "Nintendo",
+    "skills": [
+      "C++",
+      "Unity"
+    ],
+    "location": "Tokyo",
+    "type": "Full-time"
+  },
+  {
+    "jobTitle": "Backend Developer",
+    "companyName": "Uber",
+    "skills": [
+      "Node.js",
+      "MongoDB"
+    ],
+    "location": "San Francisco",
+    "type": "Full-time"
+  },
+  {
+    "jobTitle": "Frontend Developer",
+    "companyName": "Twitter",
+    "skills": [
+      "Vue.js",
+      "HTML",
+      "CSS"
+    ],
+    "location": "New York",
+    "type": "Full-time"
+  },
+  {
+    "jobTitle": "Cybersecurity Analyst",
+    "companyName": "Cisco",
+    "skills": [
+      "Network Security",
+      "Firewalls"
+    ],
+    "location": "London",
+    "type": "Internship"
+  },
+  {
+    "jobTitle": "Blockchain Developer",
+    "companyName": "Coinbase",
+    "skills": [
+      "Solidity",
+      "Ethereum"
+    ],
+    "location": "Remote",
+    "type": "Full-time"
+  },
+  {
+    "jobTitle": "AI Researcher",
+    "companyName": "DeepMind",
+    "skills": [
+      "Python",
+      "AI Research"
+    ],
+    "location": "London",
+    "type": "Full-time"
+  },
+  {
+    "jobTitle": "Full Stack Developer",
+    "companyName": "LinkedIn",
+    "skills": [
+      "React",
+      "Node.js",
+      "PostgreSQL"
+    ],
+    "location": "San Francisco",
+    "type": "Full-time"
+  },
+  {
+    "jobTitle": "Site Reliability Engineer",
+    "companyName": "Dropbox",
+    "skills": [
+      "Linux",
+      "Ansible"
+    ],
+    "location": "Austin",
+    "type": "Full-time"
+  },
+  {
+    "jobTitle": "Data Analyst",
+    "companyName": "Netflix",
+    "skills": [
+      "SQL",
+      "Python"
+    ],
+    "location": "Los Angeles",
+    "type": "Internship"
+  },
+  {
+    "jobTitle": "iOS Developer",
+    "companyName": "Instagram",
+    "skills": [
+      "Swift",
+      "Objective-C"
+    ],
+    "location": "New York",
+    "type": "Full-time"
+  },
+  {
+    "jobTitle": "Android Developer",
+    "companyName": "Snapchat",
+    "skills": [
+      "Kotlin",
+      "Java"
+    ],
+    "location": "Los Angeles",
+    "type": "Full-time"
+  },
+  {
+    "jobTitle": "Database Administrator",
+    "companyName": "Oracle",
+    "skills": [
+      "SQL",
+      "Oracle DB"
+    ],
+    "location": "Redwood City",
+    "type": "Full-time"
+  },
+  {
+    "jobTitle": "Penetration Tester",
+    "companyName": "CrowdStrike",
+    "skills": [
+      "Ethical Hacking",
+      "Kali Linux"
+    ],
+    "location": "Austin",
+    "type": "Full-time"
+  },
+  {
+    "jobTitle": "QA Engineer",
+    "companyName": "Atlassian",
+    "skills": [
+      "Selenium",
+      "JUnit"
+    ],
+    "location": "Sydney",
+    "type": "Internship"
+  },
+  {
+    "jobTitle": "Game Designer",
+    "companyName": "Electronic Arts",
+    "skills": [
+      "3D Modeling",
+      "Unity"
+    ],
+    "location": "Vancouver",
+    "type": "Full-time"
+  },
+  {
+    "jobTitle": "Cloud Architect",
+    "companyName": "AWS",
+    "skills": [
+      "AWS",
+      "Cloud Solutions"
+    ],
+    "location": "Seattle",
+    "type": "Full-time"
+  },
+  {
+    "jobTitle": "Full Stack Developer",
+    "companyName": "Shopify",
+    "skills": [
+      "React",
+      "Node.js"
+    ],
+    "location": "Toronto",
+    "type": "Full-time"
+  },
+  {
+    "jobTitle": "Solutions Architect",
+    "companyName": "Amazon",
+    "skills": [
+      "AWS",
+      "Microservices"
+    ],
+    "location": "London",
+    "type": "Full-time"
+  },
+  {
+    "jobTitle": "Backend Developer",
+    "companyName": "Slack",
+    "skills": [
+      "Python",
+      "Django"
+    ],
+    "location": "San Francisco",
+    "type": "Full-time"
+  },
+  {
+    "jobTitle": "Machine Learning Engineer",
+    "companyName": "Apple",
+    "skills": [
+      "Python",
+      "TensorFlow"
+    ],
+    "location": "Cupertino",
+    "type": "Full-time"
+  },
+  {
+    "jobTitle": "Network Engineer",
+    "companyName": "Verizon",
+    "skills": [
+      "Cisco",
+      "Routing"
+    ],
+    "location": "New York",
+    "type": "Full-time"
+  },
+  {
+    "jobTitle": "Web Developer",
+    "companyName": "WordPress",
+    "skills": [
+      "PHP",
+      "HTML",
+      "CSS"
+    ],
+    "location": "Remote",
+    "type": "Full-time"
+  },
+  {
+    "jobTitle": "Mobile Developer",
+    "companyName": "Airbnb",
+    "skills": [
+      "React Native",
+      "JavaScript"
+    ],
+    "location": "San Francisco",
+    "type": "Full-time"
+  },
+  {
+    "jobTitle": "DevOps Engineer",
+    "companyName": "Spotify",
+    "skills": [
+      "Docker",
+      "Kubernetes"
+    ],
+    "location": "Berlin",
+    "type": "Internship"
+  },
+  {
+    "jobTitle": "Big Data Engineer",
+    "companyName": "Netflix",
+    "skills": [
+      "Hadoop",
+      "Spark"
+    ],
+    "location": "Los Angeles",
+    "type": "Full-time"
+  },
+  {
+    "jobTitle": "Software Engineer",
+    "companyName": "GitHub",
+    "skills": [
+      "Ruby",
+      "Rails"
+    ],
+    "location": "Remote",
+    "type": "Full-time"
+  },
+  {
+    "jobTitle": "Data Scientist",
+    "companyName": "Uber",
+    "skills": [
+      "R",
+      "Python",
+      "SQL"
+    ],
+    "location": "San Francisco",
+    "type": "Full-time"
+  },
+  {
+    "jobTitle": "Technical Writer",
+    "companyName": "Microsoft",
+    "skills": [
+      "Documentation",
+      "API"
+    ],
+    "location": "Redmond",
+    "type": "Full-time"
+  },
+  {
+    "jobTitle": "Security Engineer",
+    "companyName": "Tesla",
+    "skills": [
+      "Cybersecurity",
+      "Network Security"
+    ],
+    "location": "Palo Alto",
+    "type": "Full-time"
+  },
+  {
+    "jobTitle": "Business Analyst",
+    "companyName": "Salesforce",
+    "skills": [
+      "Excel",
+      "Data Analysis"
+    ],
+    "location": "San Francisco",
+    "type": "Full-time"
+  },
+  {
+    "jobTitle": "Frontend Developer",
+    "companyName": "Pinterest",
+    "skills": [
+      "Vue.js",
+      "JavaScript"
+    ],
+    "location": "New York",
+    "type": "Full-time"
+  },
+  {
+    "jobTitle": "Solutions Engineer",
+    "companyName": "Google",
+    "skills": [
+      "Cloud Solutions",
+      "Technical Support"
+    ],
+    "location": "Mountain View",
+    "type": "Full-time"
+  },
+  {
+    "jobTitle": "kajs d",
+    "companyName": "ansda",
+    "skills": [
+      "Java",
+      "Springboot"
+    ],
+    "location": "Durg",
+    "type": "Full-time",
+    "description": "sdnfskjdnfskf"
   }
 ]
