@@ -5,7 +5,14 @@ import {
   FaTwitter,
   FaFacebook,
   FaInstagram,
-  FaYoutube, FaBold, FaItalic, FaPlus, FaMinus, FaAlignLeft , FaAlignCenter, FaAlignRight,
+  FaYoutube,
+  FaBold,
+  FaItalic,
+  FaPlus,
+  FaMinus,
+  FaAlignLeft,
+  FaAlignCenter,
+  FaAlignRight,
   FaUnderline,
 } from "react-icons/fa";
 import { MdEmail, MdLocationOn, MdPhone } from "react-icons/md";
@@ -20,7 +27,6 @@ import Certification from "./Certification";
 import { HighlightMenu } from "react-highlight-menu";
 import useKeyboardShortcut from "../../hooks/useKeyboardShortcut";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
-
 
 const Preview = () => {
   const { resumeData, setResumeData } = useContext(ResumeContext);
@@ -92,8 +98,8 @@ const Preview = () => {
   };
 
   const MenuButton = ({ title, icon, onClick }) => (
-    <button 
-      onClick={onClick} 
+    <button
+      onClick={onClick}
       title={title}
       className="p-2 hover:bg-gray-200 rounded font-semibold"
     >
@@ -104,19 +110,19 @@ const Preview = () => {
   const formatText = (command, value = null) => {
     document.execCommand(command, false, value);
   };
-  
-  const toggleBold = () => formatText('bold');
-  const toggleItalic = () => formatText('italic');
-  const toggleUnderline = () => formatText('underline');
-  const changeFontSize = (size) => formatText('fontSize', size);
+
+  const toggleBold = () => formatText("bold");
+  const toggleItalic = () => formatText("italic");
+  const toggleUnderline = () => formatText("underline");
+  const changeFontSize = (size) => formatText("fontSize", size);
   const alignText = (alignment) => formatText(`justify${alignment}`);
 
-  useKeyboardShortcut('b', true, toggleBold);
-  useKeyboardShortcut('i', true, toggleItalic);
-  useKeyboardShortcut('u', true, toggleUnderline);
+  useKeyboardShortcut("b", true, toggleBold);
+  useKeyboardShortcut("i", true, toggleItalic);
+  useKeyboardShortcut("u", true, toggleUnderline);
 
   return (
-    <div className="md:max-w-[60%] sticky top-0 preview rm-padding-print p-6 md:overflow-y-scroll md:h-screen">
+    <div className="md:max-w-[60%] sticky top-0 preview  rm-padding-print p-6 md:overflow-y-scroll md:h-screen">
       <A4PageWrapper>
         <HighlightMenu
           styles={{
@@ -131,46 +137,46 @@ const Preview = () => {
           menu={() => (
             <>
               <MenuButton
-        title="Bold (Ctrl+B)"
-        icon={<FaBold />}
-        onClick={toggleBold}
-      />
-      <MenuButton 
-        title="Italic (Ctrl+I)"
-        icon={<FaItalic />}
-        onClick={toggleItalic}
-      />
-      <MenuButton
-        title="Underline (Ctrl+U)"
-        icon={<FaUnderline />}
-        onClick={toggleUnderline}
-      />
-      <MenuButton
-        title="Increase Font Size"
-        icon={<FaPlus/>}
-        onClick={() => changeFontSize(4)} 
-      />
-      <MenuButton
-        title="Decrease Font Size"
-        icon={<FaMinus/>}
-        onClick={() => changeFontSize(2)} 
-      />
+                title="Bold (Ctrl+B)"
+                icon={<FaBold />}
+                onClick={toggleBold}
+              />
+              <MenuButton
+                title="Italic (Ctrl+I)"
+                icon={<FaItalic />}
+                onClick={toggleItalic}
+              />
+              <MenuButton
+                title="Underline (Ctrl+U)"
+                icon={<FaUnderline />}
+                onClick={toggleUnderline}
+              />
+              <MenuButton
+                title="Increase Font Size"
+                icon={<FaPlus />}
+                onClick={() => changeFontSize(4)}
+              />
+              <MenuButton
+                title="Decrease Font Size"
+                icon={<FaMinus />}
+                onClick={() => changeFontSize(2)}
+              />
 
-      <MenuButton
-        title="Align Left"
-        icon={<FaAlignLeft/>}
-        onClick={() => alignText('Left')}
-      />
-      <MenuButton
-        title="Align Center"
-        icon={<FaAlignCenter/>}
-        onClick={() => alignText('Center')}
-      />
-      <MenuButton
-        title="Align Right"
-        icon={<FaAlignRight/>}
-        onClick={() => alignText('Right')}
-      />
+              <MenuButton
+                title="Align Left"
+                icon={<FaAlignLeft />}
+                onClick={() => alignText("Left")}
+              />
+              <MenuButton
+                title="Align Center"
+                icon={<FaAlignCenter />}
+                onClick={() => alignText("Center")}
+              />
+              <MenuButton
+                title="Align Right"
+                icon={<FaAlignRight />}
+                onClick={() => alignText("Right")}
+              />
             </>
           )}
         />
@@ -213,7 +219,6 @@ const Preview = () => {
                     // Prevent text overflowing, If the socialMedia.link string is longer than 32 characters, apply the wordWrap and display styles to this <a> tag.
                     // wordWrap: "break-word" breaks the text onto the next line if it's too long,
                     // display: "inline-block" is necessary for wordWrap to work on an inline element like <a>.
-                    
                   >
                     {icons.map((icon, index) => {
                       if (icon.name === socialMedia.socialMedia.toLowerCase()) {
@@ -238,6 +243,7 @@ const Preview = () => {
                   <p className="content break-words">{resumeData.summary}</p>
                 </div>
               )}
+              <hr class="border-t-2 border-gray-300" />
               <div>
                 {resumeData.education.length > 0 && (
                   <div className="mb-1">
@@ -258,6 +264,7 @@ const Preview = () => {
                   </div>
                 )}
               </div>
+              <hr class="border-t-2 border-gray-300" />
               <Droppable droppableId="skills" type="SKILLS">
                 {(provided) => (
                   <div {...provided.droppableProps} ref={provided.innerRef}>
@@ -286,13 +293,16 @@ const Preview = () => {
                   </div>
                 )}
               </Droppable>
+              <hr class="border-t-2 border-gray-300" />
               <Language title="Languages" languages={resumeData.languages} />
+              <hr class="border-t-2 border-gray-300" />
               <Certification
                 title="Certifications"
                 certifications={resumeData.certifications}
               />
+              <hr class="border-t-2 border-gray-300" />
             </div>
-            
+
             <div className="col-span-2 space-y-2">
               {resumeData.workExperience.length > 0 && (
                 <Droppable droppableId="work-experience" type="WORK_EXPERIENCE">
@@ -387,6 +397,7 @@ const Preview = () => {
                   )}
                 </Droppable>
               )}
+              <hr class="border-t-2 border-gray-300" />
               {resumeData.projects.length > 0 && (
                 <Droppable droppableId="projects" type="PROJECTS">
                   {(provided) => (
@@ -422,12 +433,12 @@ const Preview = () => {
                                   id={`work-experience-start-end-date`}
                                 />
                               </div>
-                             
+
                               <a
                                 href={item.link}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="content"
+                                className="content text-blue-500 hover:text-blue-700"
                               >
                                 {item.link}
                               </a>
@@ -478,9 +489,7 @@ const Preview = () => {
                                 )}
                               </Droppable>
                             </div>
-                            
                           )}
-                          
                         </Draggable>
                       ))}
                       {provided.placeholder}
@@ -489,7 +498,6 @@ const Preview = () => {
                 </Droppable>
               )}
             </div>
-            
           </div>
         </DragDropContext>
       </A4PageWrapper>
@@ -513,7 +521,5 @@ const A4PageWrapper = ({ children }) => {
     </div>
   );
 };
-
-
 
 export default Preview;

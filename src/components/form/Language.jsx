@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { ResumeContext } from "../layouts/resumeMaker";
 import FormButton from "./FormButton";
+import "../../styles.css";
 
 const Language = () => {
   const { resumeData, setResumeData } = useContext(ResumeContext);
@@ -15,14 +16,17 @@ const Language = () => {
   };
 
   const addSkill = () => {
-    setResumeData({ ...resumeData, [skillType]: [...resumeData[skillType], ""] });
+    setResumeData({
+      ...resumeData,
+      [skillType]: [...resumeData[skillType], ""],
+    });
   };
 
   const removeSkill = (index) => {
     const newSkills = [...resumeData[skillType]];
     newSkills.splice(-1, 1);
     setResumeData({ ...resumeData, [skillType]: newSkills });
-  };  
+  };
 
   return (
     <div className="flex-col-gap-2">
@@ -39,7 +43,11 @@ const Language = () => {
           />
         </div>
       ))}
-      <FormButton size={resumeData[skillType].length} add={addSkill} remove={removeSkill} />
+      <FormButton
+        size={resumeData[skillType].length}
+        add={addSkill}
+        remove={removeSkill}
+      />
     </div>
   );
 };

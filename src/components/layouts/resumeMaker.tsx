@@ -1,4 +1,4 @@
-import React, { useState, createContext, useContext } from "react";
+import React, { useState, createContext } from "react";
 import Language from "../form/Language";
 import FormCP from "../form/FormCP";
 import LoadUnload from "../form/LoadUnload";
@@ -12,6 +12,7 @@ import Summary from "../form/Summary";
 import Projects from "../form/Projects";
 import Education from "../form/Education";
 import Certification from "../form/certification";
+import "../../styles.css";
 
 const ResumeContext = createContext(DefaultResumeData);
 
@@ -52,9 +53,9 @@ export default function Builder(props) {
           handleChange,
         }}
       >
-        <div className="f-col gap-4 md:flex-row justify-evenly max-w-7xl md:mx-auto md:h-screen">
+        <div className="flex flex-col gap-4 md:flex-row justify-evenly max-w-7xl mx-auto h-screen">
           {!formClose && (
-            <form className="p-4 bg-fuchsia-600 exclude-print md:max-w-[40%] md:h-screen md:overflow-y-scroll">
+            <form className="p-4 bg-zinc-300 md:max-w-[40%] md:h-full overflow-y-scroll">
               <LoadUnload />
               <PersonalInformation />
               <SocialMedia />
@@ -69,7 +70,9 @@ export default function Builder(props) {
               <Certification />
             </form>
           )}
-          <Preview />
+          <div className="flex-1 p-4 bg-white overflow-y-auto">
+            <Preview />
+          </div>
         </div>
         <FormCP formClose={formClose} setFormClose={setFormClose} />
       </ResumeContext.Provider>
