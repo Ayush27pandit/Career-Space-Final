@@ -1,11 +1,10 @@
-import FormButton from "./FormButton";
 import React, { useContext } from "react";
 import { ResumeContext } from "../layouts/resumeMaker";
+import FormButton from "./FormButton";
 
 const SocialMedia = () => {
   const { resumeData, setResumeData } = useContext(ResumeContext);
 
-  // social media
   const handleSocialMedia = (e, index) => {
     const newSocialMedia = [...resumeData.socialMedia];
     newSocialMedia[index][e.target.name] = e.target.value.replace(
@@ -30,15 +29,15 @@ const SocialMedia = () => {
   };
 
   return (
-    <div className="flex-col-gap-2">
-      <h2 className="input-title">Social Media</h2>
+    <div className="space-y-4">
+      <h2 className="text-xl font-semibold text-gray-800 mb-2">Social Media</h2>
       {resumeData.socialMedia.map((socialMedia, index) => (
-        <div key={index} className="flex-wrap-gap-2">
+        <div key={index} className="flex flex-wrap gap-2">
           <input
             type="text"
             placeholder="Social Media"
             name="socialMedia"
-            className="other-input"
+            className="flex-1 min-w-[200px] p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             value={socialMedia.socialMedia}
             onChange={(e) => handleSocialMedia(e, index)}
           />
@@ -46,7 +45,7 @@ const SocialMedia = () => {
             type="text"
             placeholder="Link"
             name="link"
-            className="other-input"
+            className="flex-1 min-w-[200px] p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             value={socialMedia.link}
             onChange={(e) => handleSocialMedia(e, index)}
           />
