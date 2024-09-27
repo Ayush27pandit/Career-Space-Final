@@ -7,6 +7,8 @@ interface FormData {
   type: string;
   location: string;
   description: string;
+  forType: string;
+  college: string;
 }
 
 function JobPostForm() {
@@ -17,6 +19,8 @@ function JobPostForm() {
     type: "",
     location: "",
     description: "",
+    forType: "",
+    college: "",
   });
 
   const handleChange = (
@@ -49,6 +53,8 @@ function JobPostForm() {
           type: "",
           location: "",
           description: "",
+          forType: "",
+          college: "",
         }); // Reset form
       } else {
         alert("Failed to post job. Please try again.");
@@ -118,6 +124,30 @@ function JobPostForm() {
             id="location"
             name="location"
             value={formData.location}
+            onChange={handleChange}
+            required
+            className="text-black"
+          />
+        </div>
+        <div>
+          <label htmlFor="forType">For Type:</label>
+          <input
+            type="text"
+            id="forType"
+            name="forType"
+            value={formData.forType}
+            onChange={handleChange}
+            required
+            className="text-black"
+          />
+        </div>
+        <div>
+          <label htmlFor="college">College:</label>
+          <input
+            type="text"
+            id="college"
+            name="college"
+            value={formData.college}
             onChange={handleChange}
             required
             className="text-black"
