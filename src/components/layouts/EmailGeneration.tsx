@@ -8,7 +8,7 @@ const EmailContentGenerator = () => {
   const handleSubmit = async () => {
     const prompt = `Generate a professional email tailored to the following job description: "${jobDescription}"`;
     try {
-      const response = await axios.post('/api/ai', { prompt });
+      const response = await axios.post('http://localhost:3000/api/ai', { prompt });
       setEmailContent(response.data.content);
     } catch (error) {
       console.error('Error generating email content:', error);

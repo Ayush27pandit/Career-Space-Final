@@ -6,9 +6,10 @@ const SkillGapIdentifier = () => {
   const [suggestions, setSuggestions] = useState('');
 
   const handleSubmit = async () => {
+    console.log("hit")
     const prompt = `Given the following skills: "${skills}", identify the skill gaps and suggest what to learn next.`;
     try {
-      const response = await axios.post('/api/ai', { prompt });
+      const response = await axios.post('http://localhost:3000/api/ai/skill', { prompt });
       setSuggestions(response.data.suggestions);
     } catch (error) {
       console.error('Error identifying skill gaps:', error);

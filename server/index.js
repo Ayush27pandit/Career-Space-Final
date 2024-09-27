@@ -5,7 +5,8 @@ const path = require("path");
 const port = 3000;
 const cors = require('cors');
 const { listModels, queryOllama } = require('./ollama'); // Import Ollama functions
-
+const { GoogleGenerativeAI } = require("@google/generative-ai");
+require('dotenv').config();
 
 const app = express();
 
@@ -126,6 +127,67 @@ app.get('/api/quiz', (req, res) => {
     return res.status(404).json({ message: 'Quiz not found!' });
   }
   return res.json(quizData);
+});
+
+// Initialize the Google Generative AI client
+const genAI = new GoogleGenerativeAI('AIzaSyCxjrzPyF9W3WuK5X8FOsaMFOCQZPCYPNE');
+const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+
+// Route to handle AI email generation
+app.post('/api/ai/email', async (req, res) => {
+  const { prompt } = req.body;
+
+  try {
+    console.log("hit ")
+    const result = await model.generateContent(prompt);
+    const emailContent = result.response.text(); // Get the generated text
+    res.json({ content: emailContent });
+  } catch (error) {
+    console.error('Error communicating with Google Generative AI:', error);
+    res.status(500).json({ error: 'Failed to generate email content' });
+  }
+});
+
+// Route to handle AI skill gap identification
+app.post('/api/ai/skill', async (req, res) => {
+  const { prompt } = req.body;
+
+  try {
+    console.log("hit");
+    const result = await model.generateContent(prompt);
+    const suggestions = result.response.text(); // Get the generated suggestions
+    res.json({ suggestions }); // Send suggestions back
+  } catch (error) {
+    console.error('Error communicating with Google Generative AI:', error);
+    res.status(500).json({ error: 'Failed to generate suggestions' });
+  }
+});
+
+// Route to handle AI quiz generation
+app.post('/api/ai/quiz', async (req, res) => {
+  const { prompt } = req.body;
+
+  try {
+    console.log("Received prompt for quiz generation:", prompt);
+    
+    // Call the model to generate the quiz
+    const result = await model.generateContent(prompt);
+    
+    // Get the generated quiz JSON
+    const quizData = result.response.text(); // Get the generated quiz JSON
+    
+    // Remove any unwanted characters or formatting
+    const cleanQuizData = quizData.replace(/```json/g, '').replace(/```/g, '').trim();
+
+    // Parse the cleaned JSON
+    const parsedQuizData = JSON.parse(cleanQuizData);
+
+    // Send the parsed quiz data back
+    res.json({ quiz: parsedQuizData });
+  } catch (error) {
+    console.error('Error communicating with Google Generative AI:', error);
+    res.status(500).json({ error: 'Failed to generate quiz' });
+  }
 });
 
 
