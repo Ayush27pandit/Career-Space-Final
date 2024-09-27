@@ -10,6 +10,9 @@ import JobPostForm from "./components/layouts/JobPostForm";
 import JobSearch from "./components/layouts/JobSearch";
 import JobSearchForm from "./components/layouts/JobSearchForm";
 import ResumeMaker from "./components/layouts/resumeMaker";
+import Quiz from "./components/layouts/quiz";
+import QuizCreator from "./components/QuizCreator";
+import QuizTaker from "./components/QuizTaker";
 
 export const router = createBrowserRouter(
   [
@@ -32,6 +35,14 @@ export const router = createBrowserRouter(
     {
       path:'/resume',
       element:<ResumeMaker />
+    },
+    {
+      path:'/quizcreate',
+      element:<QuizCreator />
+    },
+    {
+      path:'/quiztaker',
+      element:<QuizTaker />
     }
   ],
   {

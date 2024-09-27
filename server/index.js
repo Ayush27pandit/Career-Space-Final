@@ -14,9 +14,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 app.get("/", (req, res) => {
-  res.send.json({
-    message: "Hello World",
-  });
+  res.send('<p>some html</p>');
 });
 
 
@@ -84,6 +82,21 @@ app.post('/query', async (req, res) => {
   }
 });
 
+
+//quizData
+let quizData = null; // This will store the quiz in-memory (temporary)
+
+app.post('/api/quiz', (req, res) => {
+  quizData = req.body;
+  return res.status(201).json({ message: 'Quiz saved!' });
+});
+
+app.get('/api/quiz', (req, res) => {
+  if (!quizData) {
+    return res.status(404).json({ message: 'Quiz not found!' });
+  }
+  return res.json(quizData);
+});
 
 
 app.listen(3000, () => {
