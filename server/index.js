@@ -4,8 +4,11 @@ const fs = require("fs");
 const path = require("path");
 const port = 3000;
 const cors = require('cors');
+const { listModels, queryOllama } = require('./ollama'); // Import Ollama functions
+
 
 const app = express();
+
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -47,6 +50,40 @@ app.post('/api/users', (req, res) => {
     });
   });
 });
+
+
+// Route to get available models
+app.get('/models', async (req, res) => {
+  try {
+    const models = await listModels();
+    res.json({ models });
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to fetch models' });
+  }
+});
+
+// Route to send a question to Ollama API
+app.post('/query', async (req, res) => {
+  const { question, model = 'llama3.1' } = req.body;
+
+  if (!question) {
+    return res.status(400).json({ error: 'Question is required' });
+  }
+
+  try {
+    const models = await listModels();
+    if (!models.includes(model)) {
+      return res.status(404).json({ error: `Model "${model}" not found. Available models: ${models.join(', ')}` });
+    }
+
+    const answer = await queryOllama(question, model);
+    res.json({ answer });
+  } catch (error) {
+    console.error('Error querying Ollama:', error.message);
+    res.status(500).json({ error: 'Failed to query Ollama' });
+  }
+});
+
 
 
 app.listen(3000, () => {
