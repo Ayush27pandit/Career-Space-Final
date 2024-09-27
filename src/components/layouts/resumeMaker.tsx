@@ -55,21 +55,16 @@ export default function Builder(props) {
         <div className="f-col gap-4 md:flex-row justify-evenly max-w-7xl md:mx-auto md:h-screen">
           {!formClose && (
             <form className="p-4 bg-fuchsia-600 exclude-print md:max-w-[40%] md:h-screen md:overflow-y-scroll">
-              <LoadUnload/>
+              <LoadUnload />
               <PersonalInformation />
               <SocialMedia />
               <Summary />
               <Education />
               <WorkExperience />
               <Projects />
-              {
-                resumeData.skills.map((skill, index) => (
-                  <Skill
-                    title={skill.title}
-                    key={index}
-                  />
-                ))
-              }
+              {resumeData.skills.map((skill, index) => (
+                <Skill title={skill.title} key={index} />
+              ))}
               <Language />
               <Certification />
             </form>
