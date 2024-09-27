@@ -186,18 +186,28 @@ app.post("/api/ai/email", async (req, res) => {
   }
 });
 
-// Route to handle AI skill gap identification
 app.post("/api/ai/skill", async (req, res) => {
   const { prompt } = req.body;
 
   try {
-    console.log("hit");
+    console.log("hit ");
     const result = await model.generateContent(prompt);
-    const suggestions = result.response.text(); // Get the generated suggestions
-    res.json({ suggestions }); // Send suggestions back
+
+    // Check the type of response and parse it accordingly
+    let skillTree;
+    
+    if (typeof result.response === 'string') {
+      // If it's a string, attempt to parse it as JSON
+      skillTree = JSON.parse(result.response); 
+    } else {
+      // If it's an object, handle it as a JSON object directly
+      skillTree = result.response; 
+    }
+    console.log(skillTree)
+    res.json({ skillTree });
   } catch (error) {
     console.error("Error communicating with Google Generative AI:", error);
-    res.status(500).json({ error: "Failed to generate suggestions" });
+    res.status(500).json({ error: "Failed to generate skill roadmap" });
   }
 });
 
