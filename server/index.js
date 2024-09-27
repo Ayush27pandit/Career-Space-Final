@@ -18,6 +18,36 @@ app.get("/", (req, res) => {
 });
 
 
+app.post("/jobpostform", (req, res) => {
+  const { jobTitle, companyName, skills } = req.body;
+
+  const newUserData = {
+    jobTitle,
+    companyName,
+    skills: skills.split(",").map((skill) => skill.trim()), // Convert skills to an array
+  };
+
+  // Read existing data
+  let userData = [];
+  const filePath = path.join(__dirname, "userData.json");
+
+  if (fs.existsSync(filePath)) {
+    const fileData = fs.readFileSync(filePath);
+    userData = JSON.parse(fileData);
+  }
+
+  // Add new data
+  userData.push(newUserData);
+
+  // Write updated data back to file
+  fs.writeFileSync(filePath, JSON.stringify(userData, null, 2));
+
+  res.status(200).json({
+    msg: "success",
+  });
+});
+
+
 // Route to handle user details submission
 app.post('/api/users', (req, res) => {
   const userDetails = req.body;
