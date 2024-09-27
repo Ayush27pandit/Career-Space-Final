@@ -48,6 +48,40 @@ app.get("/api/data", (req, res) => {
 
 
 const applicationsFilePath = path.join(__dirname, 'applications.json'); // File to store applications
+const jobDataFilePath = path.join(__dirname, 'dummydata2.json');
+
+
+app.post("/myjobs", (req, res) => {
+  const { jobIds } = req.body; // Array of job IDs sent by the frontend
+
+  // Read existing jobs from dummydata2.json
+  let jobs = [];
+  if (fs.existsSync(jobDataFilePath)) {
+    const fileData = fs.readFileSync(jobDataFilePath, 'utf8');
+    jobs = JSON.parse(fileData);
+  }
+
+  // Read existing applications from applications.json
+  let applications = [];
+  if (fs.existsSync(applicationsFilePath)) {
+    const fileData = fs.readFileSync(applicationsFilePath, 'utf8');
+    applications = JSON.parse(fileData);
+  }
+
+  // Filter the jobs based on the job IDs sent by the frontend
+  const userJobsWithApplications = jobs
+    .filter(job => jobIds.includes(job.id)) // Filter jobs by jobIds
+    .map(job => {
+      const jobApplications = applications.filter(app => app.jobId === job.id); // Get applications for the job
+      return {
+        ...job, // Include the job details
+        applications: jobApplications, // Attach the applications for this job
+      };
+    });
+
+  // Send the jobs with their respective applications
+  res.status(200).json(userJobsWithApplications);
+});
 
 // Endpoint to apply for a job
 app.post("/apply", (req, res) => {
@@ -78,8 +112,74 @@ app.post("/apply", (req, res) => {
 });
 
 
+// Helper function to read JSON file
+const readJSONFile = (filePath) => {
+  return new Promise((resolve, reject) => {
+    fs.readFile(filePath, 'utf-8', (err, data) => {
+      if (err) reject(err);
+      resolve(JSON.parse(data));
+    });
+  });
+};
+
+// Helper function to write to JSON file
+const writeJSONFile = (filePath, data) => {
+  return new Promise((resolve, reject) => {
+    fs.writeFile(filePath, JSON.stringify(data, null, 2), 'utf-8', (err) => {
+      if (err) reject(err);
+      resolve(true);
+    });
+  });
+};
+
+// Endpoint to fetch all jobs
+app.get('/api/dummydata2', async (req, res) => {
+  try {
+    const jobs = await readJSONFile(jobsFilePath);
+    res.json(jobs);
+  } catch (error) {
+    console.error("Error reading jobs file:", error);
+    res.status(500).json({ error: "Failed to fetch jobs" });
+  }
+});
+
+// Endpoint to fetch all applications
+app.get('/api/applications', async (req, res) => {
+  try {
+    const applications = await readJSONFile(applicationsFilePath);
+    res.json(applications);
+  } catch (error) {
+    console.error("Error reading applications file:", error);
+    res.status(500).json({ error: "Failed to fetch applications" });
+  }
+});
+
+app.get("/api/applications/:email", (req, res) => {
+  const { email } = req.params;
+  const filePath = path.join(__dirname, "applications.json");
+
+  if (fs.existsSync(filePath)) {
+    const fileData = fs.readFileSync(filePath, "utf8");
+    const applications = JSON.parse(fileData);
+
+    // Filter applications by email
+    const userApplications = applications.filter(
+      (application) => application.email === email
+    );
+
+    if (userApplications.length === 0) {
+      return res.status(404).json({ message: "No applications found for this email." });
+    }
+
+    res.json(userApplications);
+  } else {
+    res.status(500).json({ message: "Error reading applications data" });
+  }
+});
+
 app.post("/jobpostform", (req, res) => {
   const {
+    jobId, // Accept jobId from frontend
     jobTitle,
     companyName,
     skills, // This might be a string or an array
@@ -99,12 +199,9 @@ app.post("/jobpostform", (req, res) => {
     userData = JSON.parse(fileData);
   }
 
-  // Get the next ID
-  const newId = getNextId(userData);
-
-  // Create new user data with incrementing ID
-  const newUserData = {
-    id: newId,
+  // Create new job data with the jobId from frontend
+  const newJobData = {
+    id: jobId, // Use the jobId from frontend
     jobTitle,
     companyName,
     skills: Array.isArray(skills) ? skills : skills.split(",").map((skill) => skill.trim()), // Check if skills is an array
@@ -116,14 +213,14 @@ app.post("/jobpostform", (req, res) => {
   };
 
   // Add new data
-  userData.push(newUserData);
+  userData.push(newJobData);
 
   // Write updated data back to file
   fs.writeFileSync(filePath, JSON.stringify(userData, null, 2));
 
   res.status(200).json({
     msg: "success",
-    id: newId,
+    id: jobId,
   });
 });
 

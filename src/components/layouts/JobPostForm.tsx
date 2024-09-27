@@ -13,6 +13,7 @@ interface FormData {
   description: string;
   forType: string; // To specify if it's for college or everyone
   college?: string; // Optional college field
+  jobId?: string; // For the generated 4-digit ID
 }
 
 function JobPostForm() {
@@ -28,6 +29,10 @@ function JobPostForm() {
     college: "", // Initialize college
   });
 
+  const generateRandomId = () => {
+    return Math.floor(1000 + Math.random() * 9000).toString(); // Generate a random 4-digit ID
+  };
+
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
@@ -38,17 +43,22 @@ function JobPostForm() {
     }));
   };
 
+  
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
+      // Generate a random jobId (4-digit number)
+      const jobId = Math.floor(1000 + Math.random() * 9000).toString();
+  
       // Convert skills to an array
-      const skillsArray = formData.skills.split(",").map(skill => skill.trim());
-
+      const skillsArray = formData.skills.split(",").map((skill) => skill.trim());
+  
       const dataToSubmit = {
         ...formData,
-        skills: skillsArray, // Include the array of skills
+        skills: skillsArray,
+        jobId,
       };
-
+  
       const response = await fetch("http://localhost:3000/jobpostform", {
         method: "POST",
         headers: {
@@ -56,9 +66,23 @@ function JobPostForm() {
         },
         body: JSON.stringify(dataToSubmit),
       });
-
+  
       if (response.ok) {
         alert("Job posted successfully!");
+  
+        // Retrieve any existing job details from localStorage and ensure it's an array
+        const existingJobs = JSON.parse(localStorage.getItem("jobDetails") || "[]");
+  
+        // Check if it's actually an array, otherwise initialize it as an empty array
+        const jobsArray = Array.isArray(existingJobs) ? existingJobs : [];
+  
+        // Append the new job to the array
+        const updatedJobs = [...jobsArray, dataToSubmit];
+  
+        // Save the updated array back to localStorage
+        localStorage.setItem("jobDetails", JSON.stringify(updatedJobs));
+  
+        // Reset the form
         setFormData({
           jobTitle: "",
           companyName: "",
@@ -68,7 +92,7 @@ function JobPostForm() {
           description: "",
           forType: "",
           college: "",
-        }); // Reset form
+        });
       } else {
         alert("Failed to post job. Please try again.");
       }
@@ -77,7 +101,7 @@ function JobPostForm() {
       alert("An error occurred. Please try again later.");
     }
   };
-
+    
   // Check if user is authenticated
   const isAuthenticated = localStorage.getItem('userDetails') !== null;
 
