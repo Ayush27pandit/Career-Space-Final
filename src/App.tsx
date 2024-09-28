@@ -3,8 +3,10 @@ import { router } from "./Router";
 
 export default function App() {
     return (
+        <>
+        <RouterProvider router={router} />
         
-            <RouterProvider router={router} />
-        
+        </>
+            
     )
 }

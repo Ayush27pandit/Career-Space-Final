@@ -15,6 +15,8 @@ import SkillGapIdentifier from "./components/layouts/SkillGenerator";
 import AIQuizGenerator from "./components/layouts/AIquiz";
 import Posts from "./components/layouts/Posts";
 import VoiceflowWidget from "./components/layouts/VoiceFlow";
+import JobSeekerDashboard from "./components/layouts/JobseekerDash";
+import Application from "./components/layouts/Application";
 
 export const router = createBrowserRouter(
   [
@@ -66,7 +68,14 @@ export const router = createBrowserRouter(
       path: "/voiceflow",
       element: <VoiceflowWidget />,
     },
-    
+    {
+      path:'/jobseekDashboard',
+      element:<JobSeekerDashboard />
+    },
+    {
+      path:'/jobApplicants',
+      element:<Application />
+    }
     
   ],
   {

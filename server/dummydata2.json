@@ -1,0 +1,431 @@
+[
+  {
+    "id": 1,
+    "jobTitle": "Software Developer",
+    "companyName": "Tech Corp",
+    "skills": [
+      "JavaScript",
+      "React",
+      "Node.js"
+    ],
+    "location": "Remote",
+    "type": "Full-time",
+    "forType": "College",
+    "college": "Indian Institute of Technology, Bombay",
+    "description": "Develop and maintain web applications."
+  },
+  {
+    "id": 2,
+    "jobTitle": "Data Analyst",
+    "companyName": "Data Inc.",
+    "skills": [
+      "Python",
+      "SQL",
+      "Excel"
+    ],
+    "location": "Kanpur",
+    "type": "Internship",
+    "forType": "Global",
+    "college": "Indian Institute of Technology, Kanpur",
+    "description": "Analyze and interpret complex data sets."
+  },
+  {
+    "id": 3,
+    "jobTitle": "UI/UX Designer",
+    "companyName": "Design Solutions",
+    "skills": [
+      "Figma",
+      "Adobe XD",
+      "Sketch"
+    ],
+    "location": "Mumbai",
+    "type": "Contract",
+    "forType": "College",
+    "college": "National Institute of Design, Ahmedabad",
+    "description": "Create intuitive and visually appealing user interfaces."
+  },
+  {
+    "id": 4,
+    "jobTitle": "Machine Learning Engineer",
+    "companyName": "AI Innovations",
+    "skills": [
+      "Python",
+      "TensorFlow",
+      "PyTorch"
+    ],
+    "location": "Bangalore",
+    "type": "Full-time",
+    "forType": "Global",
+    "college": "Indian Institute of Science, Bangalore",
+    "description": "Develop and implement machine learning models."
+  },
+  {
+    "id": 5,
+    "jobTitle": "Product Manager",
+    "companyName": "Startup Hub",
+    "skills": [
+      "Agile",
+      "JIRA",
+      "Product Strategy"
+    ],
+    "location": "Delhi",
+    "type": "Full-time",
+    "forType": "College",
+    "college": "Indian Institute of Management, Ahmedabad",
+    "description": "Lead product development and strategy."
+  },
+  {
+    "id": 6,
+    "jobTitle": "Cybersecurity Analyst",
+    "companyName": "SecureNet",
+    "skills": [
+      "Network Security",
+      "Ethical Hacking",
+      "CISSP"
+    ],
+    "location": "Hyderabad",
+    "type": "Internship",
+    "forType": "College",
+    "college": "Indian Institute of Technology, Hyderabad",
+    "description": "Protect company assets from cyber threats."
+  },
+  {
+    "id": 7,
+    "jobTitle": "Digital Marketing Specialist",
+    "companyName": "MarketPro",
+    "skills": [
+      "SEO",
+      "Google Analytics",
+      "Social Media Marketing"
+    ],
+    "location": "Pune",
+    "type": "Part-time",
+    "forType": "Global",
+    "college": "Symbiosis Institute of Media and Communication",
+    "description": "Develop and execute digital marketing strategies."
+  },
+  {
+    "id": 8,
+    "jobTitle": "Cloud Solutions Architect",
+    "companyName": "CloudTech",
+    "skills": [
+      "AWS",
+      "Azure",
+      "Kubernetes"
+    ],
+    "location": "Chennai",
+    "type": "Full-time",
+    "forType": "College",
+    "college": "Indian Institute of Technology, Madras",
+    "description": "Design and implement cloud-based solutions."
+  },
+  {
+    "id": 9,
+    "jobTitle": "Biomedical Engineer",
+    "companyName": "HealthTech Innovations",
+    "skills": [
+      "MATLAB",
+      "CAD",
+      "Medical Imaging"
+    ],
+    "location": "Ahmedabad",
+    "type": "Internship",
+    "forType": "College",
+    "college": "Indian Institute of Technology, Gandhinagar",
+    "description": "Develop medical devices and equipment."
+  },
+  {
+    "id": 10,
+    "jobTitle": "Financial Analyst",
+    "companyName": "Finance Solutions",
+    "skills": [
+      "Financial Modeling",
+      "Excel",
+      "Bloomberg Terminal"
+    ],
+    "location": "Mumbai",
+    "type": "Full-time",
+    "forType": "Global",
+    "college": "Narsee Monjee Institute of Management Studies",
+    "description": "Analyze financial data and provide investment recommendations."
+  },
+  {
+    "id": 11,
+    "jobTitle": "Mobile App Developer",
+    "companyName": "AppWizards",
+    "skills": [
+      "Swift",
+      "Kotlin",
+      "React Native"
+    ],
+    "location": "Gurgaon",
+    "type": "Contract",
+    "forType": "College",
+    "college": "Delhi Technological University",
+    "description": "Develop mobile applications for iOS and Android platforms."
+  },
+  {
+    "id": 12,
+    "jobTitle": "Robotics Engineer",
+    "companyName": "RoboTech",
+    "skills": [
+      "ROS",
+      "C++",
+      "Computer Vision"
+    ],
+    "location": "Bangalore",
+    "type": "Full-time",
+    "forType": "Global",
+    "college": "Indian Institute of Science, Bangalore",
+    "description": "Design and develop robotic systems and automation solutions."
+  },
+  {
+    "id": 13,
+    "jobTitle": "Environmental Scientist",
+    "companyName": "EcoSolutions",
+    "skills": [
+      "GIS",
+      "Environmental Modeling",
+      "Data Analysis"
+    ],
+    "location": "Dehradun",
+    "type": "Internship",
+    "forType": "College",
+    "college": "Indian Institute of Remote Sensing",
+    "description": "Conduct environmental impact assessments and research."
+  },
+  {
+    "id": 14,
+    "jobTitle": "Supply Chain Analyst",
+    "companyName": "LogisticsPro",
+    "skills": [
+      "SAP",
+      "Inventory Management",
+      "Forecasting"
+    ],
+    "location": "Kolkata",
+    "type": "Full-time",
+    "forType": "College",
+    "college": "Indian Institute of Management, Calcutta",
+    "description": "Optimize supply chain operations and logistics."
+  },
+  {
+    "id": 15,
+    "jobTitle": "Blockchain Developer",
+    "companyName": "CryptoTech",
+    "skills": [
+      "Solidity",
+      "Ethereum",
+      "Smart Contracts"
+    ],
+    "location": "Pune",
+    "type": "Full-time",
+    "forType": "Global",
+    "college": "College of Engineering, Pune",
+    "description": "Develop decentralized applications and blockchain solutions."
+  },
+  {
+    "id": 16,
+    "jobTitle": "Content Writer",
+    "companyName": "ContentCraft",
+    "skills": [
+      "Copywriting",
+      "SEO Writing",
+      "WordPress"
+    ],
+    "location": "Remote",
+    "type": "Freelance",
+    "forType": "College",
+    "college": "Xavier Institute of Communications, Mumbai",
+    "description": "Create engaging content for websites and marketing materials."
+  },
+  {
+    "id": 17,
+    "jobTitle": "Aerospace Engineer",
+    "companyName": "SkyTech",
+    "skills": [
+      "CAD",
+      "Fluid Dynamics",
+      "Propulsion Systems"
+    ],
+    "location": "Bangalore",
+    "type": "Full-time",
+    "forType": "College",
+    "college": "Indian Institute of Space Science and Technology",
+    "description": "Design and develop aerospace systems and components."
+  },
+  {
+    "id": 18,
+    "jobTitle": "HR Manager",
+    "companyName": "TalentForce",
+    "skills": [
+      "Recruitment",
+      "Employee Relations",
+      "HRIS"
+    ],
+    "location": "Noida",
+    "type": "Full-time",
+    "forType": "Global",
+    "college": "Tata Institute of Social Sciences",
+    "description": "Manage HR functions and implement HR strategies."
+  },
+  {
+    "id": 19,
+    "jobTitle": "Game Developer",
+    "companyName": "GameStudio",
+    "skills": [
+      "Unity",
+      "C#",
+      "3D Modeling"
+    ],
+    "location": "Hyderabad",
+    "type": "Internship",
+    "forType": "College",
+    "college": "International Institute of Information Technology, Hyderabad",
+    "description": "Develop engaging video games for multiple platforms."
+  },
+  {
+    "id": 20,
+    "jobTitle": "Mechanical Engineer",
+    "companyName": "AutoTech",
+    "skills": [
+      "AutoCAD",
+      "SolidWorks",
+      "Thermal Analysis"
+    ],
+    "location": "Chennai",
+    "type": "Full-time",
+    "forType": "College",
+    "college": "Indian Institute of Technology, Madras",
+    "description": "Design and develop mechanical systems for automotive applications."
+  },
+  {
+    "id": 21,
+    "jobTitle": "Business Analyst",
+    "companyName": "ConsultCo",
+    "skills": [
+      "Data Visualization",
+      "SQL",
+      "Process Modeling"
+    ],
+    "location": "Mumbai",
+    "type": "Full-time",
+    "forType": "Global",
+    "college": "Shri Ram College of Commerce, Delhi",
+    "description": "Analyze business processes and recommend improvements."
+  },
+  {
+    "id": 22,
+    "jobTitle": "backend",
+    "companyName": "Adobe",
+    "skills": [
+      "Java",
+      "Springboot"
+    ],
+    "location": "Durg",
+    "type": "Full-time",
+    "description": "a,sndkanl",
+    "forType": "College",
+    "college": "Bhilai Institute of Technology, Durg"
+  },
+  {
+    "id": 23,
+    "jobTitle": "google intern",
+    "companyName": "google",
+    "skills": [
+      "webdev"
+    ],
+    "location": "durg",
+    "type": "internship",
+    "description": "fullstack intern",
+    "forType": "College",
+    "college": "bitdurg"
+  },
+  {
+    "id": "3117",
+    "jobTitle": "",
+    "companyName": "",
+    "skills": [
+      ""
+    ],
+    "location": "",
+    "type": "",
+    "description": "",
+    "forType": ""
+  },
+  {
+    "id": "9497",
+    "jobTitle": "google intern",
+    "companyName": "meta",
+    "skills": [
+      "no"
+    ],
+    "location": "remote",
+    "type": "internship",
+    "description": "afasaf",
+    "forType": "Everyone"
+  },
+  {
+    "id": "4228",
+    "jobTitle": "meta",
+    "companyName": "meta",
+    "skills": [
+      "meta"
+    ],
+    "location": "meta",
+    "type": "meta",
+    "description": "meta",
+    "forType": "Everyone"
+  },
+  {
+    "id": "6912",
+    "jobTitle": "gogle",
+    "companyName": "fea",
+    "skills": [
+      "asf"
+    ],
+    "location": "asd",
+    "type": "asd",
+    "description": "asdsa",
+    "forType": "College",
+    "college": "asdada"
+  },
+  {
+    "id": "9809",
+    "jobTitle": "gogleasd",
+    "companyName": "feaasd",
+    "skills": [
+      "asfasda"
+    ],
+    "location": "asdasda",
+    "type": "asd",
+    "description": "asdsa",
+    "forType": "College",
+    "college": "asdada"
+  },
+  {
+    "id": "3566",
+    "jobTitle": "gogleasd",
+    "companyName": "feaasd",
+    "skills": [
+      "asfasda"
+    ],
+    "location": "asdasda",
+    "type": "asd",
+    "description": "asdsa",
+    "forType": "College",
+    "college": "asdada"
+  },
+  {
+    "id": "3410",
+    "jobTitle": "asd",
+    "companyName": "asds",
+    "skills": [
+      "asdas"
+    ],
+    "location": "asdsa",
+    "type": "asdas",
+    "description": "asda",
+    "forType": "Everyone"
+  }
+]
