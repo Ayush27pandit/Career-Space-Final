@@ -5,6 +5,7 @@ import Spline from '@splinetool/react-spline';
 import Main from "./Main";
 import Nav from "./nav";
 import  HorizontalScrollMenu  from "./horizontalScroll";
+import VoiceflowChat from './VoiceFlow';
 
 
 
@@ -17,7 +18,7 @@ export function Applayout() {
       </div>
       < Main />
       <HorizontalScrollMenu />
-      
+      <VoiceflowChat />
     </div>
   );
 }

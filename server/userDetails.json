@@ -38,5 +38,38 @@
     "collegeName": "BIT DURG",
     "companyName": "Google",
     "location": "delhi"
+  },
+  {
+    "name": "sidd",
+    "email": "siddhant977@gmail.com",
+    "phone": "7987798",
+    "skills": "",
+    "jobPreference": "posting",
+    "jobType": "everyone",
+    "collegeName": "adaas",
+    "companyName": "asd",
+    "location": "asdd"
+  },
+  {
+    "name": "sidd",
+    "email": "siddhant977@gmail.com",
+    "phone": "7987798",
+    "skills": "",
+    "jobPreference": "posting",
+    "jobType": "everyone",
+    "collegeName": "adaas",
+    "companyName": "asd",
+    "location": "asdd"
+  },
+  {
+    "name": "sidd",
+    "email": "siddhant977@gmail.com",
+    "phone": "7987798",
+    "skills": "",
+    "jobPreference": "posting",
+    "jobType": "everyone",
+    "collegeName": "adaas",
+    "companyName": "asd",
+    "location": "asdd"
   }
 ]

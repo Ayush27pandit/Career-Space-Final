@@ -38,7 +38,7 @@ const Main = () => {
           <TypewriterEffectSmooth words={words} />
         </p>
 
-        <p className="font-poppins text-[10px] w-[50vw] text-center hidden md:block">
+        <p className="font-poppins text-[20px] w-[50vw] text-center hidden md:block">
           At Carrier Sphere, we connect talented individuals with top employers
           across industries. Whether you're seeking your dream job or looking to
           make your next career move, we provide a seamless and personalized job
@@ -52,14 +52,13 @@ const Main = () => {
       <div className="flex items-center justify-between gap-20 z-10">
         <button
           onClick={handleClick}
-          className="text-white bg-blue-500 rounded-md py-3 px-6"
+          className="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
         >
           Find Job
         </button>
         <button
-          onClick={handleClick}
-          className="text-white bg-[#5863F8] rounded-md py-3 px-6"
-        >
+          onClick={handleClick} className="text-gray-900 bg-gradient-to-r from-teal-200 to-lime-200 hover:bg-gradient-to-l hover:from-teal-200 hover:to-lime-200 focus:ring-4 focus:outline-none focus:ring-lime-200 dark:focus:ring-teal-700 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+          >
           Post Job
         </button>
       </div>

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import Navbar from './nav';
 
 const QuizCreator = () => {
   const [quizTitle, setQuizTitle] = useState('');
@@ -58,6 +59,8 @@ const QuizCreator = () => {
   };
 
   return (
+    <>
+    <Navbar />
     <div className="max-w-2xl mx-auto p-6">
       <h1 className="text-2xl font-bold mb-6 text-center">Create Quiz</h1>
       <div className="mb-6">
@@ -162,6 +165,7 @@ const QuizCreator = () => {
         Submit Quiz
       </button>
     </div>
+    </>
   );
 };
 

@@ -56,9 +56,13 @@ const UserDetailsForm = () => {
 
   if (isSubmitted) {
     return (
+
+      <>
+      <Navbar />
       <Alert className="mt-4 p-4 bg-green-100 text-green-800 rounded-md">
         <AlertDescription>User details submitted successfully!</AlertDescription>
       </Alert>
+      </>
     );
   }
 
