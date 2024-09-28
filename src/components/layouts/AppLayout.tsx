@@ -7,6 +7,7 @@ import Carousel from "./Carousel";
 import Feature from "./Feature";
 import Main from "./Main";
 import Nav from "./nav";
+import  HorizontalScrollMenu  from "./horizontalScroll";
 
 export function Applayout() {
   return (
@@ -16,9 +17,7 @@ export function Applayout() {
         <Spline scene="https://prod.spline.design/sCisfYLQcqFSu6Bb/scene.splinecode" />
       </div>
       < Main />
-      < Carousel />
-      < Feature />
-      < Footer />
+      <HorizontalScrollMenu />
     </div>
   );
 }
