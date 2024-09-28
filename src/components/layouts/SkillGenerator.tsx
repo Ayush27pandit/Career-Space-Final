@@ -4,6 +4,7 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ReactFlow, { MiniMap, Controls } from 'reactflow';
 import 'reactflow/dist/style.css';
+import Navbar from './nav';
 
 const SkillGapIdentifier = () => {
   const [goal, setGoal] = useState(''); // For the user's goal
@@ -57,7 +58,9 @@ const SkillGapIdentifier = () => {
   };
   
   return (
-    <div className="flex p-4 bg-white shadow-md rounded-md h-screen"> {/* Flex container for horizontal layout */}
+    <> 
+      <Navbar />
+      <div className="flex p-4 bg-white shadow-md rounded-md h-screen"> {/* Flex container for horizontal layout */}
       <div className="flex flex-col w-1/3 p-4"> {/* Left side for forms */}
         <ToastContainer /> {/* Toast container for notifications */}
         <h2 className="text-xl font-bold mb-4">Skill Gap Identifier</h2>
@@ -121,6 +124,7 @@ const SkillGapIdentifier = () => {
         </div>
       )}
     </div>
+    </>
   );
 };
 

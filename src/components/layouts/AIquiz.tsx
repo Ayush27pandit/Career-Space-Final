@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import  Quiz  from 'react-quiz-component';
+import Navbar from './nav';
 
 const AIQuizComponent = () => {
   const [topic, setTopic] = useState('');
@@ -67,7 +68,9 @@ const AIQuizComponent = () => {
 
 
   return (
-    <div className="p-4 bg-white shadow-md rounded-md">
+    <>
+      <Navbar />
+      <div className="p-4 bg-white shadow-md rounded-md">
       <h2 className="text-xl font-bold mb-4">AI Quiz Generator</h2>
       <form onSubmit={handleSubmit}>
         <input
@@ -114,6 +117,7 @@ const AIQuizComponent = () => {
         </div>
       )}
     </div>
+    </>
   );
 };
 

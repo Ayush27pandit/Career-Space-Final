@@ -1,17 +1,14 @@
-import FormButton from "./FormButton";
 import React, { useContext } from "react";
 import { ResumeContext } from "../layouts/resumeMaker";
+import FormButton from "./FormButton";
 
 const WorkExperience = () => {
-  const {
-    resumeData,
-    setResumeData,
-  } = useContext(ResumeContext);
+  const { resumeData, setResumeData } = useContext(ResumeContext);
 
   const handleWorkExperience = (e, index) => {
-    const newworkExperience = [...resumeData.workExperience];
-    newworkExperience[index][e.target.name] = e.target.value;
-    setResumeData({ ...resumeData, workExperience: newworkExperience });
+    const newWorkExperience = [...resumeData.workExperience];
+    newWorkExperience[index][e.target.name] = e.target.value;
+    setResumeData({ ...resumeData, workExperience: newWorkExperience });
   };
 
   const addWorkExperience = () => {
@@ -32,22 +29,22 @@ const WorkExperience = () => {
   };
 
   const removeWorkExperience = (index) => {
-    const newworkExperience = [...resumeData.workExperience];
-    newworkExperience[index] = newworkExperience[newworkExperience.length - 1];
-    newworkExperience.pop();
-    setResumeData({ ...resumeData, workExperience: newworkExperience });
+    const newWorkExperience = [...resumeData.workExperience];
+    newWorkExperience[index] = newWorkExperience[newWorkExperience.length - 1];
+    newWorkExperience.pop();
+    setResumeData({ ...resumeData, workExperience: newWorkExperience });
   };
 
   return (
-    <div className="flex-col-gap-2">
-      <h2 className="input-title">Work Experience</h2>
+    <div className="space-y-6">
+      <h2 className="text-xl font-semibold text-gray-800">Work Experience</h2>
       {resumeData.workExperience.map((workExperience, index) => (
-        <div key={index} className="f-col">
+        <div key={index} className="space-y-4 p-4 bg-gray-50 rounded-lg">
           <input
             type="text"
             placeholder="Company"
             name="company"
-            className="w-full other-input"
+            className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             value={workExperience.company}
             onChange={(e) => handleWorkExperience(e, index)}
           />
@@ -55,33 +52,36 @@ const WorkExperience = () => {
             type="text"
             placeholder="Job Title"
             name="position"
-            className="w-full other-input"
+            className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             value={workExperience.position}
             onChange={(e) => handleWorkExperience(e, index)}
           />
+          <div className="relative">
+            <textarea
+              placeholder="Description"
+              name="description"
+              className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none h-32"
+              value={workExperience.description}
+              maxLength={250}
+              onChange={(e) => handleWorkExperience(e, index)}
+            />
+            <div className="absolute bottom-2 right-2 text-sm text-gray-500">
+              {workExperience.description.length}/250
+            </div>
+          </div>
           <textarea
-            type="text"
-            placeholder="Description"
-            name="description"
-            className="w-full other-input h-32"
-            value={workExperience.description}
-            maxLength="250"
-            onChange={(e) => handleWorkExperience(e, index)}
-          />
-          <textarea
-            type="text"
             placeholder="Key Achievements"
             name="keyAchievements"
-            className="w-full other-input h-40"
+            className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none h-40"
             value={workExperience.keyAchievements}
             onChange={(e) => handleWorkExperience(e, index)}
           />
-          <div className="flex-wrap-gap-2">
+          <div className="flex flex-wrap gap-4">
             <input
               type="date"
               placeholder="Start Year"
               name="startYear"
-              className="other-input"
+              className="flex-1 min-w-[150px] p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               value={workExperience.startYear}
               onChange={(e) => handleWorkExperience(e, index)}
             />
@@ -89,7 +89,7 @@ const WorkExperience = () => {
               type="date"
               placeholder="End Year"
               name="endYear"
-              className="other-input"
+              className="flex-1 min-w-[150px] p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               value={workExperience.endYear}
               onChange={(e) => handleWorkExperience(e, index)}
             />

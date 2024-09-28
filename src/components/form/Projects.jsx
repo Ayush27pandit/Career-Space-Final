@@ -1,6 +1,6 @@
-import FormButton from "./FormButton";
 import React, { useContext } from "react";
 import { ResumeContext } from "../layouts/resumeMaker";
+import FormButton from "./FormButton";
 
 const Projects = () => {
   const { resumeData, setResumeData } = useContext(ResumeContext);
@@ -17,7 +17,7 @@ const Projects = () => {
       projects: [
         ...resumeData.projects,
         {
-          title: "",
+          name: "",
           link: "",
           description: "",
           keyAchievements: "",
@@ -36,15 +36,15 @@ const Projects = () => {
   };
 
   return (
-    <div className="flex-col-gap-2">
-      <h2 className="input-title">Projects</h2>
+    <div className="space-y-6">
+      <h2 className="text-xl font-semibold text-gray-800">Projects</h2>
       {resumeData.projects.map((project, index) => (
-        <div key={index} className="f-col">
+        <div key={index} className="space-y-4 p-4 bg-gray-50 rounded-lg">
           <input
             type="text"
             placeholder="Project Name"
             name="name"
-            className="w-full other-input"
+            className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             value={project.name}
             onChange={(e) => handleProjects(e, index)}
           />
@@ -52,33 +52,36 @@ const Projects = () => {
             type="text"
             placeholder="Link"
             name="link"
-            className="w-full other-input"
+            className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             value={project.link}
             onChange={(e) => handleProjects(e, index)}
           />
+          <div className="relative">
+            <textarea
+              placeholder="Description"
+              name="description"
+              className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none h-32"
+              value={project.description}
+              maxLength={250}
+              onChange={(e) => handleProjects(e, index)}
+            />
+            <div className="absolute bottom-2 right-2 text-sm text-gray-500">
+              {project.description.length}/250
+            </div>
+          </div>
           <textarea
-            type="text"
-            placeholder="Description"
-            name="description"
-            className="w-full other-input h-32"
-            value={project.description}
-            maxLength="250"
-            onChange={(e) => handleProjects(e, index)}
-          />
-          <textarea
-            type="text"
             placeholder="Key Achievements"
             name="keyAchievements"
-            className="w-full other-input h-40"
+            className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none h-40"
             value={project.keyAchievements}
             onChange={(e) => handleProjects(e, index)}
           />
-          <div className="flex-wrap-gap-2">
+          <div className="flex flex-wrap gap-4">
             <input
               type="date"
               placeholder="Start Year"
               name="startYear"
-              className="other-input"
+              className="flex-1 min-w-[150px] p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               value={project.startYear}
               onChange={(e) => handleProjects(e, index)}
             />
@@ -86,7 +89,7 @@ const Projects = () => {
               type="date"
               placeholder="End Year"
               name="endYear"
-              className="other-input"
+              className="flex-1 min-w-[150px] p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               value={project.endYear}
               onChange={(e) => handleProjects(e, index)}
             />

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Alert, AlertDescription } from '@/components/ui/alert';
+import Navbar from './nav';
 
 const UserDetailsForm = () => {
   const [userDetails, setUserDetails] = useState({
@@ -62,7 +63,9 @@ const UserDetailsForm = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="max-w-md mx-auto mt-8 p-6 bg-white shadow-md rounded-lg">
+   <>
+   <Navbar />
+   <form onSubmit={handleSubmit} className="max-w-md mx-auto mt-8 p-6 bg-white shadow-md rounded-lg">
       <div className="mb-4">
         <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="name">
           Name:
@@ -213,6 +216,8 @@ const UserDetailsForm = () => {
         {isLoading ? 'Submitting...' : 'Submit'}
       </button>
     </form>
+
+   </>  
   );
 };
 

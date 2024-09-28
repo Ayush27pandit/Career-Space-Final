@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import DataTable from 'react-data-table-component';
 import { Alert, AlertDescription } from '@/components/ui/alert';
+import Navbar from './nav';
 
 const JobList = () => {
   const [jobs, setJobs] = useState([]);
@@ -110,6 +111,7 @@ const JobList = () => {
   return (
     <div>
       {/* Search input */}
+      <Navbar />
       <input
         type="text"
         placeholder="Search by job title or company name"

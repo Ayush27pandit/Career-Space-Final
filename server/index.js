@@ -308,7 +308,7 @@ app.get("/api/quiz", (req, res) => {
 });
 
 // Initialize the Google Generative AI client
-const genAI = new GoogleGenerativeAI("AIzaSyCxjrzPyF9W3WuK5X8FOsaMFOCQZPCYPNE");
+const genAI = new GoogleGenerativeAI("AIzaSyChawQdy_EgB6OPp00BAKUAXXnIL9sUNYk");
 const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
 // Route to handle AI email generation
