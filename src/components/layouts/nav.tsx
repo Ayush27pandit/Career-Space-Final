@@ -7,7 +7,7 @@ const Navbar = () => {
         <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
           <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Career Sphere</span>
         </a>
-        <div className="flex  items-stretch md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+        <div className="flex gap-10 items-stretch md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
         <a href="/jobpostform">
           <button
             type="button"

@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import DataTable from 'react-data-table-component';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import Navbar from './nav';
+import { Input } from '../ui/input';
+import { Button } from '../ui/button';
 
 const JobList = () => {
   const [jobs, setJobs] = useState([]);
@@ -112,7 +114,9 @@ const JobList = () => {
     <div>
       {/* Search input */}
       <Navbar />
-      <input
+      <div className='w-[100vw] flex items-start justify-center p-8 flex-col'>
+      <Input
+        className='w-[10vw] h-[5vh] font-semibold text-md'
         type="text"
         placeholder="Search by job title or company name"
         value={searchText}
@@ -120,9 +124,9 @@ const JobList = () => {
         style={{ marginBottom: '20px', padding: '10px', width: '300px' }}
       />
       {/* Button to fetch data */}
-      <button onClick={fetchJobs} disabled={loading} style={{ marginBottom: '20px' }}>
+      <Button onClick={fetchJobs} disabled={loading} style={{ marginBottom: '20px' }}>
         {loading ? 'Loading...' : 'Fetch Jobs'}
-      </button>
+      </Button>
 
       {/* Alerts for apply success or error */}
       {applySuccess && (
@@ -145,6 +149,7 @@ const JobList = () => {
         striped
         progressPending={loading}
       />
+      </div>
     </div>
   );
 };

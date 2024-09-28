@@ -1,13 +1,12 @@
-import { Outlet } from "react-router-dom";
-import { Header } from "./Header";
-import { Footer } from "./Footer";
+
 import Spline from '@splinetool/react-spline';
 
-import Carousel from "./Carousel";
-import Feature from "./Feature";
+
 import Main from "./Main";
 import Nav from "./nav";
 import  HorizontalScrollMenu  from "./horizontalScroll";
+
+
 
 export function Applayout() {
   return (
@@ -18,6 +17,7 @@ export function Applayout() {
       </div>
       < Main />
       <HorizontalScrollMenu />
+      
     </div>
   );
 }

@@ -67,16 +67,17 @@ function JobPostForm() {
   return (
     <>
     <Navbar />
-    <Link  className="" to={"/jobApplicants"}>
-      <Button variant={'default'}>
-        See your jobs
-      </Button>
-    </Link>
     <div className="md:p-5 bg-black h-[100vh] w-[100vw] text-white flex items-center justify-center md:justify-between">
       <div className="text-white">
         <img src="public/images/9464331_4180157.jpg" className="rounded-lg h-[40rem] hidden md:block"/>
       </div>
       <div className="md:m-5">
+      <Link  className="" to={"/jobApplicants"}>
+      <Button className="h-[50px] text-md mb-8" variant={'secondary'}>
+        See your jobs
+      </Button>
+      <h1 className="text-md font-semibold">Or</h1>
+    </Link>
       <h1 className="font-Roboto font-semibold py-4 text-5xl md:w-[50vw]">Job Submission Form</h1>
       <form className="space-y-4" onSubmit={handleSubmit}>
         <div className="">
